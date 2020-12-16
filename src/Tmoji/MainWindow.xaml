@@ -25,7 +25,8 @@
         </Style>
     </Window.Resources>
 
-    <StackPanel>
+    <Border BorderBrush="Black" BorderThickness="2">
+        <StackPanel>
         <Label FontSize="36" FontWeight="SemiBold">Tmoji</Label>
         <Label Foreground="LightGray">Click an icon to copy it</Label>
 
@@ -67,5 +68,6 @@
             </WrapPanel>
         </GroupBox>
 
-    </StackPanel>
+        </StackPanel>
+    </Border>
 </Window>
