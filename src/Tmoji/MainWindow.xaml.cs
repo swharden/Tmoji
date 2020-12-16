@@ -26,7 +26,6 @@ namespace Tmoji
         public MainWindow()
         {
             InitializeComponent();
-            PlaceWindowAtLowerRightAboveTaskbar();
             Hide();
 
             string notifyIconPath = System.IO.Path.GetFullPath("Tmoji.ico");
@@ -36,13 +35,6 @@ namespace Tmoji
             notifyIcon = new System.Windows.Forms.NotifyIcon() { Visible = true, Icon = icon };
             notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(Icon_Click);
             notifyIcon.DoubleClick += new EventHandler(Icon_DoubleClick);
-        }
-
-        private void PlaceWindowAtLowerRightAboveTaskbar()
-        {
-            double taskbarHeight = SystemParameters.PrimaryScreenHeight - SystemParameters.FullPrimaryScreenHeight;
-            Top = SystemParameters.PrimaryScreenHeight - Height - taskbarHeight;
-            Left = SystemParameters.PrimaryScreenWidth - Width;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -63,9 +55,16 @@ namespace Tmoji
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 if (Visibility == Visibility.Visible)
+                {
                     Hide();
+                }
                 else
+                {
+                    // position window near the taskbar
+                    Top = SystemParameters.PrimaryScreenHeight - Height - 5;
+                    Left = SystemParameters.PrimaryScreenWidth - Width - 5;
                     Show();
+                }
             }
             else if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
