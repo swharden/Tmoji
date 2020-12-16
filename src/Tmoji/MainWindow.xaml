@@ -11,8 +11,8 @@
         ShowInTaskbar="False"
         Topmost="True" 
         WindowStyle="None"
-        Title="Tmoji" Height="300" Width="200">
-    
+        Title="Tmoji" Height="350" Width="200">
+
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Foreground" Value="Black" />
@@ -24,20 +24,25 @@
             <Setter Property="Margin" Value="2" />
         </Style>
     </Window.Resources>
-    
+
     <StackPanel>
         <Label FontSize="36" FontWeight="SemiBold">Tmoji</Label>
-        <Label>Click an icon to copy it</Label>
-        
+        <Label Foreground="LightGray">Click an icon to copy it</Label>
+
         <GroupBox Header="Emoji" Margin="5 0">
             <WrapPanel>
                 <Button Content="😜" Click="Button_Click" />
                 <Button Content="😝" Click="Button_Click" />
                 <Button Content="😎" Click="Button_Click" />
+                <Button Content="🤓" Click="Button_Click" />
+                <Button Content="🤔" Click="Button_Click" />
                 <Button Content="💁‍" Click="Button_Click" />
+                <Button Content="⚠️" Click="Button_Click" />
+                <Button Content="❓" Click="Button_Click" />
+                <Button Content="💡" Click="Button_Click" />
             </WrapPanel>
         </GroupBox>
-        
+
         <GroupBox Header="Greek" Margin="5 0">
             <WrapPanel>
                 <Button Content="Δ" Click="Button_Click" />
