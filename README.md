@@ -6,4 +6,4 @@
 
 ## Download
 
-**⚠️ Tmoji is early in development** not yet recommended for casual users. A click-to-run EXE will be made available after Tmoji matures. For now, Tmoji is available only as source code.
+**⚠️ Tmoji is early in development** and not yet recommended for casual users. A click-to-run EXE will be made available after Tmoji matures. For now, Tmoji is available only as source code.
