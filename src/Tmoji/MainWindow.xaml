@@ -1,0 +1,66 @@
+﻿<Window x:Class="Tmoji.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tmoji"
+        mc:Ignorable="d"
+        HorizontalAlignment="Right"
+        VerticalAlignment="Bottom"
+        ResizeMode="NoResize" 
+        ShowInTaskbar="False"
+        Topmost="True" 
+        WindowStyle="None"
+        Title="Tmoji" Height="300" Width="200">
+    
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontStyle" Value="Normal" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Width" Value="30" />
+            <Setter Property="Margin" Value="2" />
+        </Style>
+    </Window.Resources>
+    
+    <StackPanel>
+        <Label FontSize="36" FontWeight="SemiBold">Tmoji</Label>
+        <Label>Click an icon to copy it</Label>
+        
+        <GroupBox Header="Emoji" Margin="5 0">
+            <WrapPanel>
+                <Button Content="😜" Click="Button_Click" />
+                <Button Content="😝" Click="Button_Click" />
+                <Button Content="😎" Click="Button_Click" />
+                <Button Content="💁‍" Click="Button_Click" />
+            </WrapPanel>
+        </GroupBox>
+        
+        <GroupBox Header="Greek" Margin="5 0">
+            <WrapPanel>
+                <Button Content="Δ" Click="Button_Click" />
+                <Button Content="µ" Click="Button_Click" />
+                <Button Content="Ω" Click="Button_Click" />
+                <Button Content="σ" Click="Button_Click" />
+                <Button Content="τ" Click="Button_Click" />
+            </WrapPanel>
+        </GroupBox>
+
+        <GroupBox Header="Arrows" Margin="5 0">
+            <WrapPanel>
+                <Button Content="↑" Click="Button_Click" />
+                <Button Content="↓" Click="Button_Click" />
+                <Button Content="←" Click="Button_Click" />
+                <Button Content="→" Click="Button_Click" />
+                <Button Content="→" Click="Button_Click" />
+                <Button Content="￫" Click="Button_Click" />
+                <Button Content="➔" Click="Button_Click" />
+                <Button Content="➜" Click="Button_Click" />
+                <Button Content="⤙" Click="Button_Click" />
+            </WrapPanel>
+        </GroupBox>
+
+    </StackPanel>
+</Window>
