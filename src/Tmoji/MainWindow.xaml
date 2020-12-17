@@ -11,6 +11,7 @@
         ShowInTaskbar="False"
         Topmost="True" 
         WindowStyle="None"
+        Deactivated="Window_Deactivated"
         Title="Tmoji" Height="350" Width="200">
 
     <Window.Resources>
@@ -27,46 +28,41 @@
 
     <Border BorderBrush="Black" BorderThickness="2">
         <StackPanel>
-        <Label FontSize="36" FontWeight="SemiBold">Tmoji</Label>
-        <Label Foreground="LightGray">Click an icon to copy it</Label>
+            <Label FontSize="36" FontWeight="SemiBold">Tmoji</Label>
+            <Label Foreground="LightGray">Click an icon to copy it</Label>
 
-        <GroupBox Header="Emoji" Margin="5 0">
-            <WrapPanel>
-                <Button Content="😜" Click="Button_Click" />
-                <Button Content="😝" Click="Button_Click" />
-                <Button Content="😎" Click="Button_Click" />
-                <Button Content="🤓" Click="Button_Click" />
-                <Button Content="🤔" Click="Button_Click" />
-                <Button Content="💁‍" Click="Button_Click" />
-                <Button Content="⚠️" Click="Button_Click" />
-                <Button Content="❓" Click="Button_Click" />
-                <Button Content="💡" Click="Button_Click" />
-            </WrapPanel>
-        </GroupBox>
+            <GroupBox Header="Emoji" Margin="5 0">
+                <WrapPanel>
+                    <Button Content="😜" Click="Button_Click" />
+                    <Button Content="😝" Click="Button_Click" />
+                    <Button Content="😎" Click="Button_Click" />
+                    <Button Content="🤓" Click="Button_Click" />
+                    <Button Content="🤔" Click="Button_Click" />
+                    <Button Content="💁‍" Click="Button_Click" />
+                    <Button Content="⚠️" Click="Button_Click" />
+                    <Button Content="❓" Click="Button_Click" />
+                    <Button Content="💡" Click="Button_Click" />
+                    <Button Content="💀" Click="Button_Click" />
+                    <Button Content="☠️" Click="Button_Click" />
+                </WrapPanel>
+            </GroupBox>
 
-        <GroupBox Header="Greek" Margin="5 0">
-            <WrapPanel>
-                <Button Content="Δ" Click="Button_Click" />
-                <Button Content="µ" Click="Button_Click" />
-                <Button Content="Ω" Click="Button_Click" />
-                <Button Content="σ" Click="Button_Click" />
-                <Button Content="τ" Click="Button_Click" />
-            </WrapPanel>
-        </GroupBox>
-
-        <GroupBox Header="Arrows" Margin="5 0">
-            <WrapPanel>
-                <Button Content="↑" Click="Button_Click" />
-                <Button Content="↓" Click="Button_Click" />
-                <Button Content="←" Click="Button_Click" />
-                <Button Content="→" Click="Button_Click" />
-                <Button Content="→" Click="Button_Click" />
-                <Button Content="￫" Click="Button_Click" />
-                <Button Content="➔" Click="Button_Click" />
-                <Button Content="➜" Click="Button_Click" />
-                <Button Content="⤙" Click="Button_Click" />
-            </WrapPanel>
-        </GroupBox>
+            <GroupBox Header="Symbols" Margin="5 0">
+                <WrapPanel>
+                    <Button Content="±" Click="Button_Click" />
+                    <Button Content="Δ" Click="Button_Click" />
+                    <Button Content="µ" Click="Button_Click" />
+                    <Button Content="Ω" Click="Button_Click" />
+                    <Button Content="σ" Click="Button_Click" />
+                    <Button Content="τ" Click="Button_Click" />
+                    <Button Content="λ" Click="Button_Click" />
+                    <Button Content="↑" Click="Button_Click" />
+                    <Button Content="↓" Click="Button_Click" />
+                    <Button Content="←" Click="Button_Click" />
+                    <Button Content="→" Click="Button_Click" />
+                    <Button Content="⤙" Click="Button_Click" />
+                </WrapPanel>
+            </GroupBox>
 
         </StackPanel>
     </Border>
