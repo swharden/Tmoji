@@ -9,65 +9,26 @@
         VerticalAlignment="Bottom"
         ResizeMode="NoResize" 
         ShowInTaskbar="False"
-        Topmost="True" 
         WindowStyle="None"
+        Topmost="True" 
         Deactivated="Window_Deactivated"
-        Title="Tmoji" Height="350" Width="200">
+        Title="Tmoji" Height="312" Width="245" SizeToContent="Height">
+    <Border BorderThickness="2" BorderBrush="Black">
+        <DockPanel LastChildFill="True">
+            <DockPanel DockPanel.Dock="Top" Background="WhiteSmoke">
+                <Label FontSize="36" FontWeight="SemiBold">Tmoji</Label>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                    <Button Content="⚙️" Width="30" Height="30" BorderThickness="0" Background="Transparent"/>
+                    <Button Content="✕" Width="30" Height="30" BorderThickness="0" Background="Transparent" Click="Button_X_Click"/>
+                </StackPanel>
+            </DockPanel>
 
-    <Window.Resources>
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Foreground" Value="Black" />
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="FontFamily" Value="Segoe UI" />
-            <Setter Property="FontStyle" Value="Normal" />
-            <Setter Property="Height" Value="30" />
-            <Setter Property="Width" Value="30" />
-            <Setter Property="Margin" Value="2" />
-        </Style>
-    </Window.Resources>
+            <StackPanel x:Name="ButtonStackPanel">
+                <TextBlock>
+                    This is where the buttons go...
+                </TextBlock>
+            </StackPanel>
 
-    <Border BorderBrush="Black" BorderThickness="2">
-        <StackPanel>
-            <Label FontSize="36" FontWeight="SemiBold">Tmoji</Label>
-            <Label Foreground="LightGray">Click an icon to copy it</Label>
-
-            <GroupBox Header="Emoji" Margin="5 0">
-                <WrapPanel>
-                    <Button Content="😜" Click="Button_Click" />
-                    <Button Content="😝" Click="Button_Click" />
-                    <Button Content="😎" Click="Button_Click" />
-                    <Button Content="🤓" Click="Button_Click" />
-                    <Button Content="😂" Click="Button_Click" />
-                    <Button Content="🤣" Click="Button_Click" />
-                    <Button Content="🤔" Click="Button_Click" />
-                    <Button Content="💁‍" Click="Button_Click" />
-                    <Button Content="⚠️" Click="Button_Click" />
-                    <Button Content="❓" Click="Button_Click" />
-                    <Button Content="💡" Click="Button_Click" />
-                    <Button Content="💀" Click="Button_Click" />
-                    <Button Content="☠️" Click="Button_Click" />
-                    <Button Content="☝️" Click="Button_Click" />
-                    <Button Content="😈" Click="Button_Click" />
-                </WrapPanel>
-            </GroupBox>
-
-            <GroupBox Header="Symbols" Margin="5 0">
-                <WrapPanel>
-                    <Button Content="±" Click="Button_Click" />
-                    <Button Content="Δ" Click="Button_Click" />
-                    <Button Content="µ" Click="Button_Click" />
-                    <Button Content="Ω" Click="Button_Click" />
-                    <Button Content="σ" Click="Button_Click" />
-                    <Button Content="τ" Click="Button_Click" />
-                    <Button Content="λ" Click="Button_Click" />
-                    <Button Content="↑" Click="Button_Click" />
-                    <Button Content="↓" Click="Button_Click" />
-                    <Button Content="←" Click="Button_Click" />
-                    <Button Content="→" Click="Button_Click" />
-                    <Button Content="⤙" Click="Button_Click" />
-                </WrapPanel>
-            </GroupBox>
-
-        </StackPanel>
+        </DockPanel>
     </Border>
 </Window>

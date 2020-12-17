@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Emoji.Wpf" Version="0.1.5" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 
