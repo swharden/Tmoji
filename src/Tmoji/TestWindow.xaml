@@ -6,9 +6,7 @@
         xmlns:local="clr-namespace:Tmoji" xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
         mc:Ignorable="d"
         Title="Test Window" Height="300" Width="600">
-    <WrapPanel Margin="5">
-        <local:EmojiButton x:Name="B1" />
-        <local:EmojiButton x:Name="B2" />
-        <local:EmojiButton x:Name="B3" />
+    <WrapPanel Margin="5" Name="ButtonHolder">
+        <Label Name="ButtonHolderLabel">Emoji buttons are generated dynamically</Label>
     </WrapPanel>
 </Window>

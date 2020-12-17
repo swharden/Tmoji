@@ -36,8 +36,8 @@ namespace Tmoji
             notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(Icon_Click);
             notifyIcon.DoubleClick += new EventHandler(Icon_DoubleClick);
 
-            //if (Debugger.IsAttached)
-                //new TestWindow().ShowDialog();
+            if (Debugger.IsAttached)
+                new TestWindow().ShowDialog();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
