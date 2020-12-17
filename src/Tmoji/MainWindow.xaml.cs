@@ -64,6 +64,7 @@ namespace Tmoji
                     Top = SystemParameters.PrimaryScreenHeight - Height - 5;
                     Left = SystemParameters.PrimaryScreenWidth - Width - 5;
                     Show();
+                    Activate();
                 }
             }
             else if (e.Button == System.Windows.Forms.MouseButtons.Right)
@@ -76,6 +77,11 @@ namespace Tmoji
 
         void Icon_DoubleClick(object sender, EventArgs e)
         {
+        }
+
+        private void Window_Deactivated(object sender, EventArgs e)
+        {
+            Hide();
         }
     }
 }
