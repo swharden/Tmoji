@@ -37,6 +37,8 @@
                     <Button Content="😝" Click="Button_Click" />
                     <Button Content="😎" Click="Button_Click" />
                     <Button Content="🤓" Click="Button_Click" />
+                    <Button Content="😂" Click="Button_Click" />
+                    <Button Content="🤣" Click="Button_Click" />
                     <Button Content="🤔" Click="Button_Click" />
                     <Button Content="💁‍" Click="Button_Click" />
                     <Button Content="⚠️" Click="Button_Click" />
