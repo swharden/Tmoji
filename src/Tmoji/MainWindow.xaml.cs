@@ -22,19 +22,17 @@ namespace Tmoji
     public partial class MainWindow : Window
     {
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private readonly Settings Settings = new Settings();
 
         public MainWindow()
         {
             InitializeComponent();
-            Hide();
-            InitTaskbarIcon();
+            TrayIcon_Init();
             ResetLayout();
+            Hide();
         }
 
-        /// <summary>
-        /// Show an icon in the windows tray and connect mouse click events
-        /// </summary>
-        private void InitTaskbarIcon()
+        private void TrayIcon_Init()
         {
             string notifyIconPath = System.IO.Path.GetFullPath("Tmoji.ico");
             if (!System.IO.File.Exists(notifyIconPath))
@@ -44,33 +42,35 @@ namespace Tmoji
             notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(TrayIcon_Click);
         }
 
+        void TrayIcon_Click(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            Show();
+            Activate();
+        }
+
         /// <summary>
-        /// Dynamically create groupboxes and buttons based on emoji settings file
+        /// Repopulate the layout with groupboxes and buttons based on Settings
         /// </summary>
         private void ResetLayout(float buttonSize = 32, float fontSize = 18)
         {
+            Settings.Load();
             ButtonStackPanel.Children.Clear();
-
-            List<ButtonGroup> buttonGroups = new List<ButtonGroup>();
-            buttonGroups.Add(new ButtonGroup("Emoji", "😜,😝,😎,🤓,😂,🤣,🤔,💁,⚠️,❓,💡,💀,☠️,☝️,😈".Split(',')));
-            buttonGroups.Add(new ButtonGroup("Symbols", "±,Δ,µ,Ω,σ,τ,λ,↑,↓,←,→,⤙".Split(',')));
-
-            foreach (ButtonGroup grp in buttonGroups)
+            foreach (var group in Settings.ButtonGroups)
             {
                 var wrapPanel = new WrapPanel();
                 var groupBox = new GroupBox()
                 {
-                    Header = grp.Name,
+                    Header = group.Name,
                     Margin = new Thickness(5, 0, 5, 0),
                     Content = wrapPanel
                 };
                 ButtonStackPanel.Children.Add(groupBox);
 
-                foreach (string lbl in grp.Labels)
+                foreach (string label in group.Labels)
                 {
                     var btn = new Button()
                     {
-                        Content = lbl,
+                        Content = label,
                         Width = buttonSize,
                         Height = buttonSize,
                         Margin = new Thickness(2),
@@ -83,6 +83,13 @@ namespace Tmoji
             }
         }
 
+        private void Window_Layout_Updated(object sender, EventArgs e)
+        {
+            // reposition the window to be on the bottom-right corner of the screen
+            Top = SystemParameters.PrimaryScreenHeight - ActualHeight - 45;
+            Left = SystemParameters.PrimaryScreenWidth - ActualWidth - 10;
+        }
+
         private void Button_Emoji_Click(object sender, RoutedEventArgs e)
         {
             string text = (sender as Button).Content.ToString();
@@ -90,34 +97,39 @@ namespace Tmoji
             Hide();
         }
 
-        private void Button_X_Click(object sender, RoutedEventArgs e)
+        private void Window_Deactivated(object sender, EventArgs e) => Hide();
+
+        private void Button_Settings_Click(object sender, RoutedEventArgs e) => (sender as Button).ContextMenu.IsOpen = true;
+
+        private void Button_X_Click(object sender, RoutedEventArgs e) => Hide();
+
+        private void Button_Settings_Exit_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
+            MessageBoxResult result = MessageBox.Show("Exit the Tmoji tray app too?", "Tmoji", MessageBoxButton.YesNoCancel);
+            if (result == MessageBoxResult.Yes)
+                Close();
+            else if (result == MessageBoxResult.No)
+                Hide();
+            else if (result == MessageBoxResult.Cancel)
+                Show();
         }
 
-        void TrayIcon_Click(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void Button_Settings_Load_Click(object sender, RoutedEventArgs e) => ResetLayout();
+
+        private void Button_Settings_Save_Click(object sender, RoutedEventArgs e) => Settings.Save();
+
+        private void Button_Settings_Edit_Click(object sender, RoutedEventArgs e) => Settings.Launch();
+
+        private void Button_Settings_Reset_Click(object sender, RoutedEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            var result = MessageBox.Show("Overwrite your settings file?", "Reset Tmoji", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
             {
-                MessageBoxResult result = MessageBox.Show("Exit Tmoji?", "Tmoji", MessageBoxButton.YesNoCancel);
-                if (result == MessageBoxResult.Yes)
-                    Close();
+                Settings.LoadDefaultSettings();
+                Settings.Save();
+                ResetLayout();
+                Show();
             }
-
-            ShowWindowAtBottomRight();
-        }
-
-        private void ShowWindowAtBottomRight()
-        {
-            Show();
-            Top = SystemParameters.PrimaryScreenHeight - ActualHeight - 45;
-            Left = SystemParameters.PrimaryScreenWidth - ActualWidth - 10;
-            Activate();
-        }
-
-        private void Window_Deactivated(object sender, EventArgs e)
-        {
-            Hide();
         }
     }
 }

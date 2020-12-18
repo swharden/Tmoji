@@ -12,13 +12,26 @@
         WindowStyle="None"
         Topmost="True" 
         Deactivated="Window_Deactivated"
+        LayoutUpdated="Window_Layout_Updated"
         Title="Tmoji" Height="312" Width="245" SizeToContent="Height">
     <Border BorderThickness="2" BorderBrush="Black">
         <DockPanel LastChildFill="True">
             <DockPanel DockPanel.Dock="Top" Background="WhiteSmoke">
                 <Label FontSize="36" FontWeight="SemiBold">Tmoji</Label>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
-                    <Button Content="⚙️" Width="30" Height="30" BorderThickness="0" Background="Transparent"/>
+                    <Button Content="⚙️" Width="30" Height="30" BorderThickness="0" Background="Transparent" Click="Button_Settings_Click">
+                        <Button.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Load Settings" Click="Button_Settings_Load_Click"/>
+                                <MenuItem Header="Edit Settings" Click="Button_Settings_Edit_Click"/>
+                                <MenuItem Header="Save Settings" Click="Button_Settings_Save_Click"/>
+                                <Separator />
+                                <MenuItem Header="Reset Settings" Click="Button_Settings_Reset_Click"/>
+                                <Separator />
+                                <MenuItem Header="Exit" Click="Button_Settings_Exit_Click" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
                     <Button Content="✕" Width="30" Height="30" BorderThickness="0" Background="Transparent" Click="Button_X_Click"/>
                 </StackPanel>
             </DockPanel>
