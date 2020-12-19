@@ -27,6 +27,8 @@ namespace Tmoji
         public MainWindow()
         {
             InitializeComponent();
+            Version version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            AboutMenuItem.Header = $"About Tmoji {version.Major}.{version.Minor}";
             TrayIcon_Init();
             ResetLayout();
             Hide();
@@ -131,6 +133,12 @@ namespace Tmoji
                 ResetLayout();
                 Show();
             }
+        }
+
+        private void Button_Settings_About_Click(object sender, RoutedEventArgs e)
+        {
+            string url = "https://github.com/swharden/Tmoji";
+            Process.Start(url);
         }
     }
 }
