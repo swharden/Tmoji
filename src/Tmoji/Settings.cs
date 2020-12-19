@@ -16,6 +16,8 @@ namespace Tmoji
 
         public void Add(string group, string[] labels) => ButtonGroups.Add(new ButtonGroup(group, labels));
 
+        public void Add(ButtonGroup buttonGroup) => ButtonGroups.Add(buttonGroup);
+
         public void Clear() => ButtonGroups.Clear();
 
         public void Save() => System.IO.File.WriteAllLines(SaveFilePath, ButtonGroups.Select(x => x.ToString()));

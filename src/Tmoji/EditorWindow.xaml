@@ -7,23 +7,24 @@
         mc:Ignorable="d"
         WindowStyle="ToolWindow"
         WindowStartupLocation="CenterScreen"
+        Topmost="True"
         Title="Tmoji Editor" Height="350" Width="500">
     <DockPanel>
         <Border DockPanel.Dock="Bottom" Background="WhiteSmoke" BorderThickness="1" Margin="0 10 0 0">
             <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Right">
-                <Button Content="Cancel" Padding="5 3" Margin="5"/>
-                <Button Content="Save" Padding="5 3" Margin="5"/>
+                <Button Content="Cancel" Padding="5 3" Margin="5" Click="Button_Cancel_Click"/>
+                <Button Content="Save" Padding="5 3" Margin="5" Click="Button_Save_Click"/>
             </StackPanel>
         </Border>
         <DockPanel Margin="5">
             <Label DockPanel.Dock="Top" Content="Groups:"/>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom">
-                <Button Content="Add" Margin="5" Padding="5 3"/>
-                <Button Content="Delete" Margin="5" Padding="5 3"/>
-                <Button Content="↑" Margin="5" Padding="5 3"/>
-                <Button Content="↓" Margin="5" Padding="5 3"/>
+                <Button Content="Add" Margin="5" Padding="5 3" Click="Button_Add_Click"/>
+                <Button Content="Delete" Margin="5" Padding="5 3" Click="Button_Delete_Click"/>
+                <Button Content="↑" Margin="5" Padding="5 3" Click="Button_Up_Click"/>
+                <Button Content="↓" Margin="5" Padding="5 3" Click="Button_Down_Click"/>
             </StackPanel>
-            <ListBox Margin="5 0 5 0">
+            <ListBox Margin="5 0 5 0" Name="GroupList" DisplayMemberPath="Name">
                 <ListBoxItem IsSelected="True">Item1</ListBoxItem>
                 <ListBoxItem>Item2</ListBoxItem>
                 <ListBoxItem>Item3</ListBoxItem>
@@ -31,12 +32,10 @@
         </DockPanel>
         <DockPanel Margin="5">
             <Label Content="Group Name:" DockPanel.Dock="Top"/>
-            <TextBox Text="Item1" DockPanel.Dock="Top" Margin="5 0"/>
+            <TextBox Text="{Binding Name}" DataContext="{Binding ElementName=GroupList, Path=SelectedItem}" DockPanel.Dock="Top" Margin="5 0"/>
             <Label Content="Emoji/Symbols:" DockPanel.Dock="Top" Margin="0 10 0 0"/>
-            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
-                <Button Content="Emoji Picker" Margin="5" Padding="5 3"/>
-            </StackPanel>
-            <TextBox Text="😉😉😉😉😉" FontSize="18" Margin="5 0"/>
+            <Label Content="Press win + . to open the emoji picker" DockPanel.Dock="Bottom" Foreground="Gray" HorizontalAlignment="Right"/>
+            <TextBox Text="{Binding Text}" DataContext="{Binding ElementName=GroupList, Path=SelectedItem}" FontSize="18" Margin="5 0" TextWrapping="Wrap"/>
         </DockPanel>
     </DockPanel>
 </Window>

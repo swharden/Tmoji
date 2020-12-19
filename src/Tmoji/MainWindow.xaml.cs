@@ -30,12 +30,6 @@ namespace Tmoji
             TrayIcon_Init();
             ResetLayout();
             Hide();
-
-            if (Debugger.IsAttached)
-            {
-                new EditorWindow().ShowDialog();
-                Close();
-            }
         }
 
         private void TrayIcon_Init()
@@ -120,11 +114,12 @@ namespace Tmoji
                 Show();
         }
 
-        private void Button_Settings_Load_Click(object sender, RoutedEventArgs e) => ResetLayout();
-
-        private void Button_Settings_Save_Click(object sender, RoutedEventArgs e) => Settings.Save();
-
-        private void Button_Settings_Edit_Click(object sender, RoutedEventArgs e) => Settings.Launch();
+        private void Button_Settings_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            new EditorWindow().ShowDialog();
+            ResetLayout();
+            Show();
+        }
 
         private void Button_Settings_Reset_Click(object sender, RoutedEventArgs e)
         {

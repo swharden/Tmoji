@@ -22,10 +22,7 @@
                     <Button Content="⚙️" Width="30" Height="30" BorderThickness="0" Background="Transparent" Click="Button_Settings_Click">
                         <Button.ContextMenu>
                             <ContextMenu>
-                                <MenuItem Header="Load Settings" Click="Button_Settings_Load_Click"/>
-                                <MenuItem Header="Edit Settings" Click="Button_Settings_Edit_Click"/>
-                                <MenuItem Header="Save Settings" Click="Button_Settings_Save_Click"/>
-                                <Separator />
+                                <MenuItem Header="Edit Emoji/Symbols" Click="Button_Settings_Edit_Click"/>
                                 <MenuItem Header="Reset Settings" Click="Button_Settings_Reset_Click"/>
                                 <Separator />
                                 <MenuItem Header="Exit" Click="Button_Settings_Exit_Click" />
