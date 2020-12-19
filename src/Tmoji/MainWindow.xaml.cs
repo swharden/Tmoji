@@ -30,6 +30,12 @@ namespace Tmoji
             TrayIcon_Init();
             ResetLayout();
             Hide();
+
+            if (Debugger.IsAttached)
+            {
+                new EditorWindow().ShowDialog();
+                Close();
+            }
         }
 
         private void TrayIcon_Init()
