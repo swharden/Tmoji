@@ -109,11 +109,17 @@ namespace Tmoji
         {
             MessageBoxResult result = MessageBox.Show("Exit the Tmoji tray app too?", "Tmoji", MessageBoxButton.YesNoCancel);
             if (result == MessageBoxResult.Yes)
-                Close();
+                ExitGracefully();
             else if (result == MessageBoxResult.No)
                 Hide();
             else if (result == MessageBoxResult.Cancel)
                 Show();
+        }
+
+        private void ExitGracefully()
+        {
+            notifyIcon.Dispose();
+            Application.Current.Shutdown();
         }
 
         private void Button_Settings_Edit_Click(object sender, RoutedEventArgs e)
