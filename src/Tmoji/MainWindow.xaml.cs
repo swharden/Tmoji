@@ -63,7 +63,7 @@ namespace Tmoji
                 var groupBox = new GroupBox()
                 {
                     Header = group.Name,
-                    Margin = new Thickness(5, 0, 5, 0),
+                    Margin = new Thickness(5, 0, 5, 5),
                     Content = wrapPanel
                 };
                 ButtonStackPanel.Children.Add(groupBox);
