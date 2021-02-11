@@ -47,8 +47,14 @@ namespace Tmoji
 
         public void LoadDefaultSettings()
         {
+            string defaultEmojiString =
+                "😜,😝,😎,🤓,😂,🤣," +
+                "🤔,💁,😅,💀,☠️,😈," +
+                "⚠️,💡,✔️,❌,❓,🎉," +
+                "👍,👈,👉,☝️,🤞,💪";
+
             Clear();
-            Add("Emoji", "😜,😝,😎,🤓,😂,🤣,🤔,💁,⚠️,❓,💡,💀,☠️,☝️,😈".Split(','));
+            Add("Emoji", defaultEmojiString.Split(','));
             Add("Symbols", "±,Δ,µ,Ω,σ,τ,λ,↑,↓,←,→,⤙".Split(','));
         }
     }
