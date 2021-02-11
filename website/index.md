@@ -1,10 +1,10 @@
 ---
-title: 
-description: 
+title: Tmoji - Copy Emoji from the Tray
+description: Tmoji is a Windows tray application that makes it easy to quickly copy emoji and special characters to the clipboard.
 ---
 # Tmoji
 
-**Tmoji is a Windows tray icon that makes it easy to copy emoji and special characters to the clipboard.** Many applications and websites _accept_ emoji as text input, but don't have an easy way to type them. Tmoji makes it easy to copy emoji to the clipboard so you can paste them anywhere text is accepted!
+**Tmoji is a Windows tray application that makes it easy to quickly copy emoji and special characters to the clipboard.** Many applications and websites _accept_ emoji as text input, but don't have an easy way to type them. Tmoji makes it easy to copy emoji to the clipboard so you can paste them anywhere text is accepted!
 
 <div align="center">
     <video loop>
