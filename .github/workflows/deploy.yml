@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  website:
+  Website:
     runs-on: ubuntu-latest
     steps:
       - name: Website
