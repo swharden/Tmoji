@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tmoji", "Tmoji.csproj", "{72981713-D360-4936-A6EF-8E33E632C53C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tmoji", "Tmoji\Tmoji.csproj", "{72981713-D360-4936-A6EF-8E33E632C53C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
