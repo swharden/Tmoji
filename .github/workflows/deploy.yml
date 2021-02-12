@@ -1,4 +1,4 @@
-name: Deploy Website
+name: Deploy
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy Stage
+      - name: Website
         id: myRequest
         uses: fjogeleit/http-request-action@master
         with:
