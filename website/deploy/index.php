@@ -1,7 +1,8 @@
 <?php
 
-// Ensure key file exists (though it should not be web-accessible)
-$keyFilePath = realpath('../../../../../../') . '/deploy.key';
+// Ensure key file exists.
+// It should be stored outside the www folder and permission 400.
+$keyFilePath = realpath('/home/customer/deploy.key');
 if (file_exists($keyFilePath) == false) {
     echo "ERROR: file not found $keyFilePath";
     die();
@@ -22,5 +23,5 @@ if ($pass == $correctPassword) {
 	echo "\n\nSTATUS:\n";
     echo exec('git status');
 } else {
-    echo "ERROR: Authorization Failed";
+    echo "ERROR: Incorrect password";
 }
