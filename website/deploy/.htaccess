@@ -1,0 +1,2 @@
+# required to support basic auth on some servers
+SetEnvIf Authorization .+ HTTP_AUTHORIZATION=$0
