@@ -13,18 +13,19 @@ description: Tmoji is a Windows tray application that makes it easy to quickly c
     </video>
 </div>
 
-<div align="center">
+## Screenshots
+
+<div class="text-center">
 <img src="tmoji-screenshot.jpg">
 <img src="tmoji-editor.jpg">
 </div>
 
-<div align="center">
-</div>
+## Download
 
 <div class="container my-5">
   <div class="row justify-content-evenly">
     <div class="col-6 text-center">
-        <div class="display-6">Pre-Release</div>
+        <div class="display-6">Download</div>
         <a class="btn btn-primary btn-lg" href="downloads/Tmoji-1.1.zip">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-exclamation-circle me-3" viewBox="0 0 16 16">
             <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"></path>
@@ -33,7 +34,7 @@ description: Tmoji is a Windows tray application that makes it easy to quickly c
         </a>
     </div>
     <div class="col-6 text-center">
-        <div class="display-6">Stable Release</div>
+        <div class="display-6">Source Code</div>
         <a class="btn btn-success btn-lg" href="https://github.com/swharden/Tmoji">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-check-circle me-3" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
