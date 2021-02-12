@@ -10,18 +10,25 @@ if (file_exists($keyFilePath) == false) {
 
 // Get authorization header from Apache
 $pass = $_SERVER['PHP_AUTH_PW'];
-if (empty($pass)){
+if (empty($pass)) {
     echo "ERROR: Password Required";
     die();
 }
 
-// Compare given token vs one on disk
+// Compare the given password to the one in the key file
 $correctPassword = trim(file_get_contents($keyFilePath));
 if ($pass == $correctPassword) {
-	echo "PULL:\n";
-    echo exec('git pull');
-	echo "\n\nSTATUS:\n";
-    echo exec('git status');
+	
+    echo "\n\nPULL:\n";
+	$outputPull = null;
+    exec('git pull', $outputPull);
+	echo join("\n",$outputPull);
+	
+    echo "\n\nSTATUS:\n";
+	$outputStatus = null;
+    exec('git status', $outputStatus);
+	echo join("\n",$outputStatus);
+
 } else {
     echo "ERROR: Incorrect password";
 }
