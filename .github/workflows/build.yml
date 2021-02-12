@@ -3,15 +3,15 @@ name: Build
 on: [push]
 
 jobs:
-  build:
+  MSBuild:
     runs-on: windows-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v1
 
-      - name: Setup MSBuild
-        uses: warrenbuckley/Setup-MSBuild@v1
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Build
         run: msbuild src/Tmoji.sln

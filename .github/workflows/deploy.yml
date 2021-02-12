@@ -7,7 +7,7 @@ on:
       - main
 
 jobs:
-  deployment:
+  httpRequest:
     runs-on: ubuntu-latest
     steps:
       - name: Website
