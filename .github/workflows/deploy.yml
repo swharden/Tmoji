@@ -1,0 +1,22 @@
+name: Deploy Website
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Stage
+        id: myRequest
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: "https://swharden.com/software/Tmoji/deploy"
+          method: "POST"
+          username: "deploy"
+          password: ${{ secrets.DEPLOY_PASSWORD }}
+      - name: Show Response
+        run: echo ${{ steps.myRequest.outputs.response }}
