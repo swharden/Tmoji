@@ -28,3 +28,5 @@ description: Tmoji is a Windows tray application that makes it easy to quickly c
 ### Download
 
 TODO: download button goes here
+
+Source code: https://github.com/swharden/Tmoji
