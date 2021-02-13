@@ -25,6 +25,7 @@
                             <ContextMenu>
                                 <MenuItem Header="Edit Emoji/Symbols" Click="Button_Settings_Edit_Click"/>
                                 <MenuItem Header="Reset Settings" Click="Button_Settings_Reset_Click"/>
+                                <MenuItem Header="Start with Windows" Click="Button_Menu_ToggleStartWithWindows" IsCheckable="True" Name="StartWithWindowsMenuItem"/>
                                 <Separator />
                                 <MenuItem Header="About Tmoji x.x" Click="Button_Settings_About_Click" Name="AboutMenuItem"/>
                                 <Separator />
