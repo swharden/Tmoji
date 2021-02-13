@@ -144,7 +144,7 @@ namespace Tmoji
 
         private void Button_Settings_About_Click(object sender, RoutedEventArgs e)
         {
-            string url = "https://github.com/swharden/Tmoji";
+            string url = "https://swharden.com/software/Tmoji";
             Process.Start(url);
         }
 
