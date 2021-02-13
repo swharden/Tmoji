@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +14,16 @@ namespace Tmoji
         public readonly List<ButtonGroup> ButtonGroups = new List<ButtonGroup>();
         private readonly string SaveFilePath;
 
-        public Settings(string saveFilePath = "settings.txt") => SaveFilePath = System.IO.Path.GetFullPath(saveFilePath);
+        public Settings(string saveFilePath = null)
+        {
+            if (saveFilePath is null)
+            {
+                string saveFileName = "settings.txt";
+                string saveFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                saveFilePath = Path.Combine(saveFolder, saveFileName);
+            }
+            SaveFilePath = saveFilePath;
+        }
 
         public void Add(string group, string[] labels) => ButtonGroups.Add(new ButtonGroup(group, labels));
 
