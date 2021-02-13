@@ -37,7 +37,7 @@ namespace Tmoji
 
         private void TrayIcon_Init()
         {
-            string notifyIconPath = System.IO.Path.GetFullPath("Tmoji.ico");
+            string notifyIconPath = System.IO.Path.Combine(TmojiFolder(), "Tmoji.ico");
             if (!System.IO.File.Exists(notifyIconPath))
                 throw new InvalidOperationException($"cannot locate icon file: {notifyIconPath}");
             var icon = new System.Drawing.Icon(notifyIconPath);
@@ -156,6 +156,9 @@ namespace Tmoji
 
         const string RUN_PATH = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
         const string RUN_VALUE_NAME = "Tmoji Trap Application";
+
+        private string TmojiFolder() => 
+            System.IO.Path.GetDirectoryName(TmojiExePath());
 
         private string TmojiExePath() =>
             System.Reflection.Assembly.GetExecutingAssembly().Location;
