@@ -155,7 +155,7 @@ namespace Tmoji
         }
 
         const string RUN_PATH = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
-        const string RUN_VALUE_NAME = "Tmoji";
+        const string RUN_VALUE_NAME = "Tmoji Trap Application";
 
         private string TmojiExePath() =>
             System.Reflection.Assembly.GetExecutingAssembly().Location;
@@ -170,7 +170,7 @@ namespace Tmoji
             if (val is null)
                 return false;
 
-            return val.ToString() == TmojiExePath();
+            return val.ToString().Contains(TmojiExePath());
         }
 
         private void StartWithWindows(bool enable)
@@ -182,21 +182,10 @@ namespace Tmoji
                 if (key is null)
                     Microsoft.Win32.Registry.CurrentUser.CreateSubKey(RUN_PATH);
 
-                try
-                {
-                    key.SetValue(
-                        name: RUN_VALUE_NAME,
-                        value: TmojiExePath(),
-                        valueKind: Microsoft.Win32.RegistryValueKind.String);
-                }
-                catch (UnauthorizedAccessException)
-                {
-                    MessageBox.Show(
-                        messageBoxText: "Registry access was denied",
-                        caption: "ERROR",
-                        button: MessageBoxButton.OK,
-                        icon: MessageBoxImage.Error);
-                }
+                key.SetValue(
+                    name: RUN_VALUE_NAME,
+                    value: "\"" + TmojiExePath() + "\"",
+                    valueKind: Microsoft.Win32.RegistryValueKind.String);
             }
             else
             {
