@@ -157,7 +157,7 @@ namespace Tmoji
         const string RUN_PATH = "Software\\Microsoft\\Windows\\CurrentVersion\\Run";
         const string RUN_VALUE_NAME = "Tmoji";
 
-        private string TmojiExePath() => 
+        private string TmojiExePath() =>
             System.Reflection.Assembly.GetExecutingAssembly().Location;
 
         private bool StartWithWindowsIsEnabled()
