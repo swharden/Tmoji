@@ -182,10 +182,21 @@ namespace Tmoji
                 if (key is null)
                     Microsoft.Win32.Registry.CurrentUser.CreateSubKey(RUN_PATH);
 
-                key.SetValue(
-                    name: RUN_VALUE_NAME,
-                    value: TmojiExePath(),
-                    valueKind: Microsoft.Win32.RegistryValueKind.String);
+                try
+                {
+                    key.SetValue(
+                        name: RUN_VALUE_NAME,
+                        value: TmojiExePath(),
+                        valueKind: Microsoft.Win32.RegistryValueKind.String);
+                }
+                catch (UnauthorizedAccessException)
+                {
+                    MessageBox.Show(
+                        messageBoxText: "Registry access was denied",
+                        caption: "ERROR",
+                        button: MessageBoxButton.OK,
+                        icon: MessageBoxImage.Error);
+                }
             }
             else
             {
