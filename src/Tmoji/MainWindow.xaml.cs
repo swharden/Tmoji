@@ -200,7 +200,7 @@ namespace Tmoji
             }
             else
             {
-                key.DeleteValue("Tmoji", throwOnMissingValue: false);
+                key.DeleteValue(RUN_VALUE_NAME, throwOnMissingValue: false);
             }
         }
     }
