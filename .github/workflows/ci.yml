@@ -21,7 +21,7 @@ jobs:
         run: msbuild src/Tmoji.sln -property:Configuration=Release -verbosity:minimal
 
       - name: 🚀 Deploy
-        uses: SamKirkland/FTP-Deploy-Action@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f # 4.1.0
+        uses: SamKirkland/FTP-Deploy-Action@65c6a8f943bbf04faf9b59520a103318b418952e # 4.1.0
         with:
           local-dir: src/Tmoji/bin/Release/net48/
           server-dir: /tmp/citest/
