@@ -1,0 +1,33 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+
+      - uses: nuget/setup-nuget@v1
+      - run: nuget restore src/Tmoji.sln
+
+      - name: Set up MSBuild
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Build
+        run: msbuild src/Tmoji.sln -property:Configuration=Release -verbosity:minimal
+
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: 🚀 Deploy
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          local-dir: src/Tmoji/bin/Release/Tmoji/
+          server-dir: /tmp/citest/
+          protocol: ftps
+          server: swharden.com
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
