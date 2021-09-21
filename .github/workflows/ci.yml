@@ -12,7 +12,6 @@ jobs:
         uses: actions/checkout@v1
 
       - name: 🚚 NuGet Restore
-        uses: nuget/setup-nuget@v1
         run: nuget restore src/Tmoji.sln
 
       - name: ⚙️ Set up MSBuild
