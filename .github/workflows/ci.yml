@@ -1,11 +1,12 @@
 name: CI
 
-on: [push]
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: windows-latest
-
     steps:
       - name: 🛒 Checkout Code
         uses: actions/checkout@v1
