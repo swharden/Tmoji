@@ -7,20 +7,18 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - name: Checkout Code
+      - name: 🛒 Checkout Code
         uses: actions/checkout@v1
 
-      - uses: nuget/setup-nuget@v1
-      - run: nuget restore src/Tmoji.sln
+      - name: 🚚 NuGet Restore
+        uses: nuget/setup-nuget@v1
+        run: nuget restore src/Tmoji.sln
 
-      - name: Set up MSBuild
+      - name: ⚙️ Set up MSBuild
         uses: microsoft/setup-msbuild@v1.0.2
 
-      - name: Build
+      - name: 🛠️ Build
         run: msbuild src/Tmoji.sln -property:Configuration=Release -verbosity:minimal
-
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v2
 
       - name: 🚀 Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
