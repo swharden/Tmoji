@@ -23,7 +23,7 @@ jobs:
       - name: 🚀 Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          local-dir: src/Tmoji/bin/Release/Tmoji/
+          local-dir: src/Tmoji/bin/Release/net48/
           server-dir: /tmp/citest/
           protocol: ftps
           server: swharden.com
